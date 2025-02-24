@@ -3,7 +3,7 @@ import { getEncoding } from 'js-tiktoken'
 import { RecursiveCharacterTextSplitter } from './text-splitter'
 
 const MinChunkSize = 140
-const encoder = getEncoding('o200k_base')
+const encoder = getEncoding('cl100k_base')
 
 // trim prompt to maximum context size
 export function trimPrompt(prompt: string, contextSize?: number) {
