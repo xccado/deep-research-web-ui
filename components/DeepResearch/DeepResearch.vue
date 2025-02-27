@@ -2,6 +2,7 @@
   import {
     deepResearch,
     type PartialProcessedSearchResult,
+    type ProcessedSearchResult,
     type ResearchStep,
   } from '~/lib/deep-research'
   import {
@@ -29,7 +30,7 @@
     generateLearningsReasoning?: string
     searchResults?: WebSearchResult[]
     /** Learnings from search results */
-    learnings?: string[]
+    learnings?: ProcessedSearchResult['learnings']
     status?: DeepResearchNodeStatus
     error?: string
   }
@@ -40,6 +41,7 @@
 
   const toast = useToast()
   const { t, locale } = useI18n()
+  const { config } = useConfigStore()
   const isLargeScreen = useMediaQuery('(min-width: 768px)')
 
   const flowRef = ref<InstanceType<typeof Flow>>()
@@ -196,7 +198,6 @@
         console.log(`[DeepResearch] complete:`, step)
         completeResult.value = {
           learnings: step.learnings,
-          visitedUrls: step.visitedUrls,
         }
         emit('complete')
         isLoading.value = false
@@ -245,8 +246,7 @@
 
     try {
       let query = getCombinedQuery(form.value, feedback.value)
-      let existingLearnings: string[] = []
-      let existingVisitedUrls: string[] = []
+      let existingLearnings: ProcessedSearchResult['learnings'] = []
       let currentDepth = 1
       let breadth = form.value.breadth
 
@@ -265,10 +265,6 @@
         existingLearnings = parentNodes
           .flatMap((n) => n.learnings || [])
           .filter(Boolean)
-        existingVisitedUrls = parentNodes
-          .flatMap((n) => n.searchResults || [])
-          .map((r) => r.url)
-          .filter(Boolean)
       }
 
       await deepResearch({
@@ -278,8 +274,8 @@
         breadth,
         maxDepth: form.value.depth,
         languageCode: locale.value,
+        searchLanguageCode: config.webSearch.searchLanguage,
         learnings: existingLearnings,
-        visitedUrls: existingVisitedUrls,
         onProgress: handleResearchProgress,
       })
     } catch (error) {
@@ -347,7 +343,7 @@
 </script>
 
 <template>
-  <UModal v-if="isFullscreen" open fullscreen>
+  <UModal v-if="isFullscreen" open fullscreen :ui="{ body: '!pr-0' }">
     <template #header>
       <div class="flex items-center justify-between">
         <div>
@@ -380,10 +376,8 @@
         <div
           v-if="selectedNode"
           :class="[
-            'border-gray-100 dark:border-gray-800',
-            isLargeScreen
-              ? 'border-l w-1/3 pl-4 sm:pl-6'
-              : 'h-1/2 overflow-y-scroll',
+            'border-gray-100 dark:border-gray-800 px-4 sm:px-6 overflow-y-auto',
+            isLargeScreen ? 'border-l w-1/3' : 'h-1/2 pt-2',
           ]"
         >
           <NodeDetail :node="selectedNode" @retry="retryNode" />
