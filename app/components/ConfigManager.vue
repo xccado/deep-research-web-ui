@@ -159,6 +159,8 @@
       config.value.ai.apiBase = ''
       config.value.ai.model = ''
       config.value.ai.contextSize = undefined
+      aiModelOptions.value = []
+      isLoadAiModelsFailed.value = false
     },
   )
   // Reset web search config when provider changed
