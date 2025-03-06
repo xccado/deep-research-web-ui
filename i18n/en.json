@@ -30,7 +30,7 @@
         },
         "infiniai": {
           "title": "Infiniai",
-          "description": "After registration, you can use the full-powered Deepseek R1 and other inference-accelerated models without any barriers. Generate an APIKEY after logging in at {0}."
+          "description": "After registration, you can use the full-powered DeepSeek R1 and other inference-accelerated models without any barriers. Generate an API key after logging in at {0}."
         }
       }
     },

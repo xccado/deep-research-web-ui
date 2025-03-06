@@ -30,7 +30,7 @@
         },
         "infiniai": {
           "title": "Infiniai 无问芯穹",
-          "description": "注册后，无门槛免费用deepseek r1满血等推理加速版模型。登录 {0} 后生成 APIKEY"
+          "description": "注册后，无门槛免费用 DeepSeek R1 满血等推理加速版模型。登录 {0} 后生成 API key。"
         }
       }
     },

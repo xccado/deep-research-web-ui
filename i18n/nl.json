@@ -30,7 +30,7 @@
         },
         "infiniai": {
           "title": "Infiniai",
-          "description": "Na registratie kunt u zonder drempels de volwaardige Deepseek R1 en andere inferentie-versnelde modellen gebruiken. Genereer een APIKEY na inloggen op {0}."
+          "description": "Na registratie kunt u zonder drempels de volwaardige DeepSeek R1 en andere inferentie-versnelde modellen gebruiken. Genereer een API key na inloggen op {0}."
         }
       }
     },
