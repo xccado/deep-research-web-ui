@@ -27,6 +27,10 @@
         "siliconflow": {
           "title": "SiliconFlow 硅基流动",
           "description": "注册赠送 ¥14 元免费额度。在 {0} 生成一个 API key。"
+        },
+        "infiniai": {
+          "title": "Infiniai 无问芯穹",
+          "description": "注册后，无门槛免费用deepseek r1满血等推理加速版模型。登录 {0} 后生成 APIKEY"
         }
       }
     },
