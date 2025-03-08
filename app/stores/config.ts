@@ -1,9 +1,10 @@
 import { skipHydrate } from 'pinia'
-import type { Locale } from '~/components/LangSwitcher.vue'
+import type { Locale } from '@/components/LangSwitcher.vue'
 
 export type ConfigAiProvider =
   | 'openai-compatible'
   | 'siliconflow'
+  | 'infiniai'
   | 'openrouter'
   | 'deepseek'
   | 'ollama'
@@ -83,6 +84,9 @@ export const useConfigStore = defineStore('config', () => {
     }
     if (ai.provider === 'siliconflow') {
       return ai.apiBase || 'https://api.siliconflow.cn/v1'
+    }
+    if (ai.provider === 'infiniai') {
+      return ai.apiBase || 'https://cloud.infini-ai.com/maas/v1'
     }
     return ai.apiBase || 'https://api.openai.com/v1'
   })

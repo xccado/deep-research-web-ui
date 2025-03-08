@@ -52,6 +52,15 @@
       linkText: 'cloud.siliconflow.cn',
     },
     {
+      label: t('settings.ai.providers.infiniai.title'),
+      help: 'settings.ai.providers.infiniai.description',
+      // Only kept for easy reference in i18n Ally
+      _help: t('settings.ai.providers.infiniai.description'),
+      value: 'infiniai',
+      link: 'https://cloud.infini-ai.com/genstudio/model?deepsearch',
+      linkText: 'cloud.infini-ai.com',
+    },
+    {
       label: 'DeepSeek',
       value: 'deepseek',
     },
@@ -95,7 +104,6 @@
 
   // Try to find available AI models based on selected provider
   const debouncedListAiModels = useDebounceFn(async () => {
-    if (!config.value.ai.apiKey) return
     if (!aiApiBase.value || !aiApiBase.value.startsWith('http')) return
 
     try {
@@ -159,6 +167,8 @@
       config.value.ai.apiBase = ''
       config.value.ai.model = ''
       config.value.ai.contextSize = undefined
+      aiModelOptions.value = []
+      isLoadAiModelsFailed.value = false
     },
   )
   // Reset web search config when provider changed

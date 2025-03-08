@@ -27,6 +27,10 @@
         "siliconflow": {
           "title": "SiliconFlow",
           "description": "Biedt ¥14 (€1,85) gratis credits bij registratie. Krijg één API-sleutel bij {0}."
+        },
+        "infiniai": {
+          "title": "Infiniai",
+          "description": "Na registratie kunt u zonder drempels de volwaardige DeepSeek R1 en andere inferentie-versnelde modellen gebruiken. Genereer een API key na inloggen op {0}."
         }
       }
     },

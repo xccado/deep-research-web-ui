@@ -27,6 +27,10 @@
         "siliconflow": {
           "title": "SiliconFlow",
           "description": "Offers ¥14 free credits on register. Get one API key at {0}."
+        },
+        "infiniai": {
+          "title": "Infiniai",
+          "description": "After registration, you can use the full-powered DeepSeek R1 and other inference-accelerated models without any barriers. Generate an API key after logging in at {0}."
         }
       }
     },

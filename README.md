@@ -15,7 +15,7 @@ Features:
 
 Currently available providers:
 
-- AI: OpenAI compatible, SiliconFlow, DeepSeek, OpenRouter, Ollama and more
+- AI: OpenAI compatible, SiliconFlow, Infiniai, DeepSeek, OpenRouter, Ollama and more
 - Web Search: Tavily (1000 free credits / month), Firecrawl (cloud / self-hosted)
 
 Please give a 🌟 Star if you like this project!
